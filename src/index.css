@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 212 100% 17%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 212 100% 17%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium;
+  }
+  
+  article p {
+    @apply font-serif text-lg leading-relaxed my-4;
+  }
+  
+  article h1 {
+    @apply text-4xl md:text-5xl mb-6 mt-10 font-serif font-semibold text-academic-500;
+  }
+  
+  article h2 {
+    @apply text-3xl md:text-4xl mb-4 mt-8 font-serif font-medium text-academic-500;
+  }
+  
+  article h3 {
+    @apply text-2xl md:text-3xl mb-3 mt-6 font-serif text-academic-500;
+  }
+  
+  article ul, article ol {
+    @apply font-serif text-lg my-4 ml-6;
+  }
+  
+  article ul {
+    @apply list-disc;
+  }
+  
+  article ol {
+    @apply list-decimal;
+  }
+  
+  article a {
+    @apply text-academic-400 hover:text-academic-600 transition-colors duration-200 underline;
+  }
+  
+  article blockquote {
+    @apply border-l-4 border-academic-300 pl-4 italic my-6 text-gray-700 font-serif;
+  }
+  
+  article code {
+    @apply bg-gray-100 rounded px-1 py-0.5 font-mono text-sm;
+  }
+  
+  article pre {
+    @apply bg-gray-100 rounded p-4 overflow-x-auto my-6;
+  }
+  
+  article img {
+    @apply my-6 rounded-md shadow-md max-w-full h-auto;
+  }
+  
+  article table {
+    @apply w-full border-collapse my-6 font-serif;
+  }
+  
+  article th, article td {
+    @apply border border-gray-300 px-4 py-2;
+  }
+  
+  article th {
+    @apply bg-gray-100;
+  }
+}
+
+@layer components {
+  .ad-container {
+    @apply flex justify-center items-center bg-gray-50 border border-gray-200 rounded overflow-hidden transition-all duration-300;
+  }
+  
+  .header-ad {
+    @apply w-full max-w-[970px] h-[250px] my-6;
+  }
+  
+  .sidebar-ad {
+    @apply w-full max-w-[300px] h-[600px] sticky top-24;
+  }
+  
+  .inarticle-ad {
+    @apply w-full max-w-[300px] h-[250px] float-right ml-6 mb-6;
+  }
+  
+  .category-top-ad {
+    @apply w-full max-w-[728px] h-[90px] my-6 mx-auto;
+  }
+  
+  .journal-card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full;
+  }
+  
+  .journal-card-title {
+    @apply font-serif text-xl font-medium text-academic-600 line-clamp-2 hover:text-academic-400 transition-colors;
+  }
+  
+  .journal-card-date {
+    @apply text-sm text-gray-500 mb-2;
+  }
+  
+  .journal-card-category {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-medium bg-academic-50 text-academic-700 mb-2;
+  }
+  
+  .journal-card-tags {
+    @apply flex flex-wrap gap-1 mt-2;
+  }
+  
+  .journal-card-tag {
+    @apply inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700;
+  }
+  
+  .category-card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100;
+  }
+  
+  .download-btn {
+    @apply inline-flex items-center px-4 py-2 bg-academic-500 text-white rounded-md hover:bg-academic-600 transition-colors duration-200 font-medium;
+  }
+
+  /* For print optimization */
+  @media print {
+    body {
+      @apply font-serif text-black bg-white;
+    }
+    
+    nav, footer, .ad-container, .download-btn {
+      display: none !important;
+    }
+    
+    article {
+      @apply max-w-none m-0 p-0;
+    }
+    
+    article h1 {
+      @apply text-3xl;
+    }
+    
+    article h2 {
+      @apply text-2xl;
+    }
+    
+    article h3 {
+      @apply text-xl;
+    }
+    
+    article p, article li {
+      @apply text-base;
+    }
+    
+    a {
+      @apply text-black no-underline;
+    }
+    
+    a::after {
+      content: " (" attr(href) ")";
+      @apply text-sm;
+    }
+  }
+  
+  /* Accessibility styles */
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-academic-700 focus:p-4 focus:border focus:border-academic-300 focus:rounded;
+  }
+  
+  .user-is-tabbing *:focus {
+    @apply outline-none ring-2 ring-academic-400 ring-offset-2;
+  }
+  
+  /* High contrast focus styles for keyboard navigation */
+  .user-is-tabbing button:focus,
+  .user-is-tabbing a:focus,
+  .user-is-tabbing input:focus,
+  .user-is-tabbing select:focus,
+  .user-is-tabbing textarea:focus {
+    @apply outline-none ring-2 ring-academic-400 ring-offset-2;
+  }
+}
+
+/* Critical CSS for above-the-fold content */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better focus styles */
+:focus {
+  @apply outline-none ring-2 ring-academic-400 ring-offset-2;
+}
+
+:focus:not(:focus-visible) {
+  @apply ring-0 ring-offset-0;
+}
+
+/* Remove scrollbar on mobile */
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Reading progress bar styles */
+.reading-progress-bar {
+  @apply origin-left;
+  transition: width 0.3s ease-out, box-shadow 0.3s ease;
+}
+
+.reading-progress-glow {
+  filter: drop-shadow(0 0 8px rgba(0, 40, 86, 0.4));
+}
+
+/* Custom styles for AdBanners to make them look more like content */
+.ad-container.header-ad .ad-wrapper,
+.ad-container.category-top-ad .ad-wrapper {
+  @apply shadow-sm hover:shadow-md transition-shadow duration-300;
+}
+
+.ad-content button {
+  @apply transition-all duration-200 transform hover:scale-105;
+}
+
+/* Journals page specific styles */
+.discipline-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 overflow-hidden h-full;
+}
+
+.discipline-icon {
+  @apply w-12 h-12 rounded-full bg-academic-50 flex items-center justify-center text-academic-500 transition-colors duration-300;
+}
+
+.discipline-card:hover .discipline-icon {
+  @apply bg-academic-100 text-academic-600;
+}
